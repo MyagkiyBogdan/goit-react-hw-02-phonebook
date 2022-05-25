@@ -1,0 +1,21 @@
+.form {
+  border: 1px solid #000;
+  max-width: 300px;
+  padding: 20px;
+}
+
+.label {
+  font-size: 20px;
+}
+
+.input {
+  display: block;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  padding: 5px;
+}
+
+.addBtn {
+  display: block;
+  padding: 10px;
+}
