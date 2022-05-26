@@ -1,9 +1,4 @@
-.item {
-  display: flex;
-  align-items: center;
-}
-
-.delBtn {
-  margin-left: 10px;
-  padding: 3px;
+.list {
+  margin: 0;
+  padding: 0;
 }
