@@ -6,7 +6,11 @@ const ContactListItem = ({ id, name, number, onClick }) => {
       <p className={styles.text}>
         <span className={styles.text__name}>{name}:</span> {number}
       </p>
-      <button className={styles.delBtn} onClick={() => onClick(id)}>
+      <button
+        className={styles.delBtn}
+        onClick={() => onClick(id)}
+        type="button"
+      >
         Delete
       </button>
     </li>
