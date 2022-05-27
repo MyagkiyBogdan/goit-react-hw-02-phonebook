@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
 import ContactForm from './ContactForm';
 import ContactList from './ContactList';
-
+import EmptyMessage from './EmptyMessage';
 import Filter from './Filter';
 export class App extends Component {
   state = {
@@ -54,17 +54,31 @@ export class App extends Component {
   };
 
   render() {
-    const { filter } = this.state;
+    const { filter, contacts } = this.state;
     const filteredArray = this.makeFilteredMarkup();
     return (
       <div className="wrapper">
-        <h1>Phonebook</h1>
-        <ContactForm onSubmit={this.addContact} />
+        <div className="header-section">
+          <h1>Phonebook</h1>
+        </div>
+        <div className="main-section">
+          <ContactForm onSubmit={this.addContact} />
+          <div className="contacts-secton">
+            <h2 className="page-title">Your contacts</h2>
+            {contacts.length > 0 ? (
+              <>
+                <Filter value={filter} onChange={this.changeFilter} />
 
-        <h2>Contacts</h2>
-        <Filter value={filter} onChange={this.changeFilter} />
-
-        <ContactList contacts={filteredArray} onDelClick={this.deleteContact} />
+                <ContactList
+                  contacts={filteredArray}
+                  onDelClick={this.deleteContact}
+                />
+              </>
+            ) : (
+              <EmptyMessage />
+            )}
+          </div>
+        </div>
       </div>
     );
   }

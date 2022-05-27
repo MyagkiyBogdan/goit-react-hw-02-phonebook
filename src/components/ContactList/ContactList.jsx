@@ -3,6 +3,9 @@ import ContactListItem from './ContactListItem';
 import PropTypes from 'prop-types';
 
 const ContactList = ({ contacts, onDelClick }) => {
+  if (contacts.length === 0) {
+    return <p className={styles.emptyFilter}>No contact with this name</p>;
+  }
   return (
     <ul className={styles.list}>
       {contacts.map(contact => (

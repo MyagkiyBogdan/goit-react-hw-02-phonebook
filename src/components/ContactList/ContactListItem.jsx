@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 const ContactListItem = ({ id, name, number, onClick }) => {
   return (
     <li className={styles.item}>
-      <p>
-        {name}: {number}
+      <p className={styles.text}>
+        <span className={styles.text__name}>{name}:</span> {number}
       </p>
       <button className={styles.delBtn} onClick={() => onClick(id)}>
         Delete

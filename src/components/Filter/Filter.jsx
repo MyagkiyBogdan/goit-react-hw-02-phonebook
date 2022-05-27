@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const Filter = props => (
   <>
     <label htmlFor="name" className={styles.label}>
-      Find contact by name
+      Find contact by name:
     </label>
     <input
       className={styles.input}
