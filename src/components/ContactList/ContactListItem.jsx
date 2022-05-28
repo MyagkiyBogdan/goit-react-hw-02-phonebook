@@ -1,8 +1,9 @@
 import styles from './ContactListItem.module.css';
+import { ReactComponent as DelBtn } from '../../icons/del.svg';
 import PropTypes from 'prop-types';
 const ContactListItem = ({ id, name, number, onClick }) => {
   return (
-    <li className={styles.item}>
+    <>
       <p className={styles.text}>
         <span className={styles.text__name}>{name}:</span> {number}
       </p>
@@ -12,8 +13,9 @@ const ContactListItem = ({ id, name, number, onClick }) => {
         type="button"
       >
         Delete
+        <DelBtn className={styles.delBtnIcon} />
       </button>
-    </li>
+    </>
   );
 };
 

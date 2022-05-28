@@ -9,13 +9,14 @@ const ContactList = ({ contacts, onDelClick }) => {
   return (
     <ul className={styles.list}>
       {contacts.map(contact => (
-        <ContactListItem
-          key={contact.id}
-          id={contact.id}
-          name={contact.name}
-          number={contact.number}
-          onClick={onDelClick}
-        />
+        <li key={contact.id} className={styles.item}>
+          <ContactListItem
+            id={contact.id}
+            name={contact.name}
+            number={contact.number}
+            onClick={onDelClick}
+          />
+        </li>
       ))}
     </ul>
   );
