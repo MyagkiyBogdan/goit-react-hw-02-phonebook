@@ -1,5 +1,5 @@
 import styles from './ContactList.module.css';
-import ContactListItem from './ContactListItem';
+import ContactListItem from './ContactListItem/ContactListItem';
 import PropTypes from 'prop-types';
 
 const ContactList = ({ contacts, onDelClick }) => {
@@ -8,12 +8,12 @@ const ContactList = ({ contacts, onDelClick }) => {
   }
   return (
     <ul className={styles.list}>
-      {contacts.map(contact => (
-        <li key={contact.id} className={styles.item}>
+      {contacts.map(({ id, name, number }) => (
+        <li key={id} className={styles.item}>
           <ContactListItem
-            id={contact.id}
-            name={contact.name}
-            number={contact.number}
+            id={id}
+            name={name}
+            number={number}
             onClick={onDelClick}
           />
         </li>
@@ -23,8 +23,14 @@ const ContactList = ({ contacts, onDelClick }) => {
 };
 
 ContactList.propTypes = {
-  contacts: PropTypes.array,
-  deleteContact: PropTypes.func,
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ),
+  onDelClick: PropTypes.func.isRequired,
 };
 
 export default ContactList;
